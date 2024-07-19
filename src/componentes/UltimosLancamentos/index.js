@@ -1,5 +1,11 @@
 import { livros } from "./dadosUltimosLancamentos";
+import { Titulo } from "../Titulo";
 import styled from "styled-components";
+import imagemLivro from "../../imagens/livro2.png";
+import CardRecomenda from "../CardRecomenda";
+
+
+
 
 const UltimosLancamentosContainer = styled.section`
     background-color: #EBECEE;
@@ -8,15 +14,6 @@ const UltimosLancamentosContainer = styled.section`
     flex-direction: column;
 `
 
-const Titulo = styled.h2`
-    width: 100%;
-    padding: 30px 0;
-    background-color: #FFF;
-    color: #EB9B00;
-    font-size: 36px;
-    text-align: center;
-    margin: 0;
-`
 
 const NovosLivrosContainer = styled.div`
     margin-top: 30px;
@@ -29,12 +26,23 @@ const NovosLivrosContainer = styled.div`
 function UltimosLancamentos () {
     return (
         <UltimosLancamentosContainer>
-        <Titulo>Ultimos Lancamentos</Titulo>
-        <NovosLivrosContainer>
-            {livros.map( livro => (
-                <img src={livro.src}/>
-            ))}
-        </NovosLivrosContainer>
+            <Titulo 
+                cor="#EB9B00"  
+                tamanhoFonte="36px" 
+                >Ultimos Lancamentos</Titulo>
+            <NovosLivrosContainer>
+                {livros.map( livro => (
+                    <img src={livro.src} alt="imagem do livro"/>
+                ))}
+            </NovosLivrosContainer>
+            <CardRecomenda
+                titulo="Talvez voce se interesse por"
+                subtitiulo="Java"
+                descricao="public static void main(Args[]){
+                    System.out.println('Corra');
+                }"
+                img={imagemLivro}
+            />
         </UltimosLancamentosContainer>
     );
 }
